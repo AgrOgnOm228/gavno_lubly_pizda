@@ -6,7 +6,6 @@ on:
       VUH_VERSION: { required: true, type: string }
 
 jobs:
-
   quality-assurance:
     name: Quality Assurance API
     runs-on: ubuntu-latest
