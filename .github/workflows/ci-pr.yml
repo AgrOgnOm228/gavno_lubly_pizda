@@ -2,27 +2,17 @@ name: ci
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
-  quality-assurance:
-    name: Quality Assurance API
-    runs-on: ubuntu-latest
-    steps:
+  validate-version:
+    name: Validate version
+    uses: ./.github/workflows/valiate-version.yml
+    with:
+      VUH_VERSION: 'v2.14.3'
 
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Установка UV
-        uses: astral-sh/setup-uv@v5
-        with:
-          enable-cache: true
-          version: "latest"
-
-      - name: Установка Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.14'
-
-      - name: QA
-        run: make full_qa
+  quality-assurance-api:
+    name: Quality assurance for api module
+    uses: ./.github/workflows/qa-api.yml
+    with:
+      VUH_VERSION: 'v2.14.3'

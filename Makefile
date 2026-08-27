@@ -24,3 +24,7 @@ mypy: requirements
 
 .PHONY: full_qa
 full_qa: ruff mypy
+
+.PHONY: run_server
+run_server: requirements
+	uv run -m src.main

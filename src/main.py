@@ -2,12 +2,13 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.routing import APIRouter
 
+from src.config import settings
 from src.routers import router as lid_router
 from src.temp import router as tmp_router
 
-app = FastAPI(docs_url='/api/v1/docs')
+app = FastAPI(docs_url=f'{settings.BASE_ROUTE_PATH}/docs')
 
-router = APIRouter(prefix='/api/v1')
+router = APIRouter(prefix=settings.BASE_ROUTE_PATH)
 
 router.include_router(lid_router, prefix='/lider', tags=['lider'])
 app.include_router(tmp_router, tags=['tmp'])
