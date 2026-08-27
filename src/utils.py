@@ -40,7 +40,7 @@ names_two: list[str] = [ "кровать", "стул", "стол", "шкаф", "
 names_pool: list[str] = []
 
 
-def create_fake_lid() -> list[Lider]:
+def create_fake_lid():
     lid: list[Lider] = []
     for _ in range(100):
         name_temporary_1 = random.choice(names_one)
