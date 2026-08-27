@@ -15,8 +15,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Установка UV
         uses: astral-sh/setup-uv@v5
