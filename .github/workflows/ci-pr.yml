@@ -7,7 +7,7 @@ on:
 jobs:
   validate-version:
     name: Validate version
-    uses: ./.github/workflows/validat-version.yml
+    uses: ./.github/workflows/valiate-version.yml
     with:
       VUH_VERSION: 'v2.14.3'
 
