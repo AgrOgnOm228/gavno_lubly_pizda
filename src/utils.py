@@ -1,8 +1,9 @@
 import random
 
+from src.config import settings
 from src.schemes import Lider
 
-names_one = [    "Александр", "Сергей", "Дмитрий", "Андрей", "Алексей",
+names_one: list[str] = [    "Александр", "Сергей", "Дмитрий", "Андрей", "Алексей",
     "Максим", "Евгений", "Иван", "Михаил", "Артем",
     "Николай", "Владимир", "Игорь", "Владислав", "Денис",
     "Павел", "Антон", "Илья", "Никита", "Роман",
@@ -40,16 +41,15 @@ names_two: list[str] = [ "кровать", "стул", "стол", "шкаф", "
 names_pool: list[str] = []
 
 
-def create_fake_lid():
+def create_fake_lid() -> list[Lider]:
     lid: list[Lider] = []
-    for _ in range(100):
+    for _ in range(settings.BASE_RANGE_LIDE):
         name_temporary_1 = random.choice(names_one)
         name_temporary_2 = random.choice(names_two)
         name_temporary_finale = name_temporary_1 + " " + name_temporary_2
         names_pool.append(name_temporary_finale)
 
-
-    for _ in range(100):
+    for _ in range(settings.BASE_RANGE_LIDE):
         name = random.choice(names_pool)
         score = random.randint(0, 1000)
         lid.append(Lider(name=name, score=score))
